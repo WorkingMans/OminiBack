@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TypesMapper">
+
+    <!--插入分类信息-->
+    <insert id="insertTypes">
+        insert into types (t_name,t_des,t_note,t_weight)
+            value (#{tName},#{tDes},#{tNote},#{tWeight})
+    </insert>
+
+    <!--查询需要指定结果
+        List<Type> == Types 集合需要返回的泛型类型
+    -->
+    <select id="queryTypeList" resultType="types">
+        select * from types
+    </select>
+
+    <!--更新分类信息-->
+    <update id="updateTypes">
+        update types set t_name = #{tName},
+                         t_des = #{tDes},
+                         t_note = #{tNote},
+                         t_weight = #{tWeight}
+                            where t_id = #{tId};
+
+    </update>
+
+
+</mapper>

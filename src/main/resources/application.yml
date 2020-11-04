@@ -1,0 +1,22 @@
+server:
+  port: 80
+  servlet:
+    context-path: /demo
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-bp18v0v67klgc63954o.mysql.rds.aliyuncs.com:3306/omini?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: qq1542332062
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+  mapper-locations: mapper/*.xml
+  type-aliases-package: com.example.demo.bean
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  file:
+    path: ./logs
+  pattern:
+    level: info
+

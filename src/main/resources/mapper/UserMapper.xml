@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserMapper">
+    <!--查询方法
+       id = 方法名
+       resultType = 返回值类型  user别名
+
+       #{属性名} - 自动调用传入对象的属性值
+
+       u_id  u_name u_account  数据库的列
+
+       uId  uName  uAccount  属性
+    -->
+    <select id="queryUser" resultType="user">
+        select * from user where u_account = #{uAccount}
+                and u_password = #{uPassword}
+    </select>
+
+    <insert id="registerUser">
+        insert into user (u_account,u_password,u_age,u_sex)
+        values (#{uAccount},#{uPassword},#{uAge},#{uSex})
+    </insert>
+
+</mapper>

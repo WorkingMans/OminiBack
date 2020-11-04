@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.InventoryMapper">
+
+    <!--插入库存信息-->
+    <insert id="addInventory">
+        insert into inventory (i_id,i_name,i_color,i_price,i_inventory)
+            value (#{iId},#{iName},#{iColor},#{iPrice},#{iInventory})
+    </insert>
+
+    <!--查询需要指定结果-->
+    <select id="selectInventory" resultType="inventory">
+        select * from inventory where i_id = #{iId}
+    </select>
+    <select id="queryall" resultType="inventory">
+        select * from inventory
+    </select>
+
+    <!--更新库存信息-->
+    <update id="updateInventory">
+        update inventory set i_name = #{iName},
+                         i_color = #{iColor},
+                         i_price = #{iPrice},
+                         i_inventory = #{iInventory}
+                            where i_id = #{iId};
+
+    </update>
+
+    <!--删除库存-->
+    <delete id="deletInventory" >
+    delete from inventory where i_id = #{iId}
+    </delete>
+
+</mapper>
